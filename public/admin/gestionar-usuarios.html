@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestionar Usuarios</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="admin-dashboard.html">Panel Admin</a>
+    <a href="gestionar-usuarios.html">Usuarios</a>
+    <a href="gestionar-cursos.html">Cursos</a>
+    <a href="gestionar-videojuegos.html">Videojuegos</a>
+    <a href="reportes.html">Reportes</a>
+    <a href="index.html" class="login-btn">Cerrar Sesión</a>
+  </nav>
+
+  <!-- Sección principal -->
+  <section class="usuarios">
+    <h1>👤 Gestión de Usuarios</h1>
+
+    <!-- Tabla de usuarios -->
+    <table class="usuarios-table" id="tablaUsuarios">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Rol</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <!-- Formulario para agregar usuario -->
+    <h2>➕ Agregar Usuario</h2>
+    <form id="formAgregar" class="usuario-form">
+      <input type="text" name="nombre" placeholder="Nombre completo" required>
+      <input type="email" name="email" placeholder="Correo electrónico" required>
+      <input type="password" name="password" placeholder="Contraseña" required>
+      <button type="submit" class="btn">Agregar</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Plataforma de Videojuegos</p>
+  </footer>
+
+  <script>
+    // Usuarios fijos
+    let usuarios = [
+      { nombre: "Administrador", email: "admin@gmail.com", password: "admin123", rol: "admin" },
+      { nombre: "Profesor 1", email: "profesor1@gmail.com", password: "prof123", rol: "profesor" },
+      { nombre: "Profesor 2", email: "profesor2@gmail.com", password: "prof456", rol: "profesor" },
+      { nombre: "Cliente 1", email: "cliente1@gmail.com", password: "cli111", rol: "cliente" },
+      { nombre: "Cliente 2", email: "cliente2@gmail.com", password: "cli222", rol: "cliente" },
+      { nombre: "Cliente 3", email: "cliente3@gmail.com", password: "cli333", rol: "cliente" },
+      { nombre: "Cliente 4", email: "cliente4@gmail.com", password: "cli444", rol: "cliente" },
+      { nombre: "Cliente 5", email: "cliente5@gmail.com", password: "cli555", rol: "cliente" },
+      { nombre: "Cliente 6", email: "cliente6@gmail.com", password: "cli666", rol: "cliente" },
+      { nombre: "Cliente 7", email: "cliente7@gmail.com", password: "cli777", rol: "cliente" },
+      { nombre: "Cliente 8", email: "cliente8@gmail.com", password: "cli888", rol: "cliente" },
+      { nombre: "Cliente 9", email: "cliente9@gmail.com", password: "cli999", rol: "cliente" },
+      { nombre: "Cliente 10", email: "cliente10@gmail.com", password: "cli000", rol: "cliente" }
+    ];
+
+    // Cargar usuarios registrados desde login
+    if (localStorage.getItem("usuariosExtra")) {
+      const extras = JSON.parse(localStorage.getItem("usuariosExtra"));
+      usuarios = usuarios.concat(extras);
+    }
+
+    // Renderizar tabla
+    function renderUsuarios() {
+      const tbody = document.querySelector("#tablaUsuarios tbody");
+      tbody.innerHTML = "";
+      usuarios.forEach((u, i) => {
+        tbody.innerHTML += `
+          <tr>
+            <td>${u.nombre}</td>
+            <td>${u.email}</td>
+            <td>
+              <select onchange="editarRol(${i}, this.value)">
+                <option value="admin" ${u.rol==="admin"?"selected":""}>Admin</option>
+                <option value="profesor" ${u.rol==="profesor"?"selected":""}>Profesor</option>
+                <option value="cliente" ${u.rol==="cliente"?"selected":""}>Cliente</option>
+              </select>
+            </td>
+            <td>
+              <button onclick="eliminarUsuario(${i})" class="btn">Eliminar</button>
+            </td>
+          </tr>
+        `;
+      });
+    }
+
+    // Editar rol
+    function editarRol(index, nuevoRol) {
+      usuarios[index].rol = nuevoRol;
+      guardarUsuariosExtra();
+      alert("Rol actualizado para " + usuarios[index].email);
+    }
+
+    // Eliminar usuario
+    function eliminarUsuario(index) {
+      alert("Usuario eliminado: " + usuarios[index].email);
+      usuarios.splice(index, 1);
+      guardarUsuariosExtra();
+      renderUsuarios();
+    }
+
+    // Guardar clientes/profesores extra en localStorage
+    function guardarUsuariosExtra() {
+      const extras = usuarios.filter(u => !u.email.startsWith("admin@gmail.com"));
+      localStorage.setItem("usuariosExtra", JSON.stringify(extras));
+    }
+
+    // Agregar usuario nuevo
+    document.querySelector("#formAgregar").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const nombre = e.target.nombre.value;
+      const email = e.target.email.value;
+      const password = e.target.password.value;
+
+      const nuevoUsuario = { nombre, email, password, rol: "cliente" };
+      usuarios.push(nuevoUsuario);
+      guardarUsuariosExtra();
+      renderUsuarios();
+      alert("Usuario agregado correctamente como Cliente.");
+      e.target.reset();
+    });
+
+    renderUsuarios();
+  </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestionar Cursos</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="admin-dashboard.html">Panel Admin</a>
+    <a href="gestionar-usuarios.html">Usuarios</a>
+    <a href="gestionar-cursos.html">Cursos</a>
+    <a href="gestionar-videojuegos.html">Videojuegos</a>
+    <a href="reportes.html">Reportes</a>
+    <a href="index.html" class="login-btn">Cerrar Sesión</a>
+  </nav>
+
+  <!-- Sección principal -->
+  <section class="cursos-admin">
+    <h1>📚 Gestión de Cursos</h1>
+
+    <!-- Tabla de cursos -->
+    <table class="cursos-table">
+      <thead>
+        <tr>
+          <th>Nombre del Curso</th>
+          <th>Instructor</th>
+          <th>Horario</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Programación de Videojuegos</td>
+          <td>Juan Pérez</td>
+          <td>Lunes y Miércoles 18:00</td>
+          <td>Activo ✅</td>
+          <td>
+            <button class="btn">Editar</button>
+            <button class="btn">Eliminar</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Diseño Gráfico para Juegos</td>
+          <td>María López</td>
+          <td>Martes y Jueves 19:00</td>
+          <td>Activo ✅</td>
+          <td>
+            <button class="btn">Editar</button>
+            <button class="btn">Eliminar</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Inteligencia Artificial en Videojuegos</td>
+          <td>Carlos Gómez</td>
+          <td>Viernes 17:00</td>
+          <td>Inactivo ❌</td>
+          <td>
+            <button class="btn">Editar</button>
+            <button class="btn">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Formulario para agregar curso -->
+    <h2>➕ Agregar Curso</h2>
+    <form class="curso-form">
+      <input type="text" placeholder="Nombre del curso" required>
+      <input type="text" placeholder="Instructor" required>
+      <input type="text" placeholder="Horario" required>
+      <select required>
+        <option value="">Seleccionar estado</option>
+        <option value="activo">Activo</option>
+        <option value="inactivo">Inactivo</option>
+      </select>
+      <button type="submit" class="btn">Agregar</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Plataforma de Videojuegos</p>
+  </footer>
+</body>
+</html>

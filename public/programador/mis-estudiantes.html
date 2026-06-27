@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mis Estudiantes</title>
+  <link rel="stylesheet" href="programador.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="programador-dashboard.html">Panel Profesor</a>
+    <a href="mis-estudiantes.html">Mis Estudiantes</a>
+    <a href="mis-guias.html">Mis Guías</a>
+    <a href="index.html" class="login-btn">Cerrar Sesión</a>
+  </nav>
+
+  <!-- Sección principal -->
+  <section class="clientes-profesor">
+    <h1>👥 Estudiantes Registrados</h1>
+
+    <!-- Tabla de clientes -->
+    <table class="clientes-table" id="tablaClientes">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Plataforma de Videojuegos</p>
+  </footer>
+
+  <script>
+    // Clientes fijos
+    let clientesFijos = [
+      { nombre: "Cliente 1", email: "cliente1@gmail.com" },
+      { nombre: "Cliente 2", email: "cliente2@gmail.com" },
+      { nombre: "Cliente 3", email: "cliente3@gmail.com" },
+      { nombre: "Cliente 4", email: "cliente4@gmail.com" },
+      { nombre: "Cliente 5", email: "cliente5@gmail.com" },
+      { nombre: "Cliente 6", email: "cliente6@gmail.com" },
+      { nombre: "Cliente 7", email: "cliente7@gmail.com" },
+      { nombre: "Cliente 8", email: "cliente8@gmail.com" },
+      { nombre: "Cliente 9", email: "cliente9@gmail.com" },
+      { nombre: "Cliente 10", email: "cliente10@gmail.com" }
+    ];
+
+    // Cargar clientes registrados desde login
+    let clientesExtra = [];
+    if (localStorage.getItem("usuariosExtra")) {
+      clientesExtra = JSON.parse(localStorage.getItem("usuariosExtra"))
+        .filter(u => u.rol === "cliente");
+    }
+
+    // Unir fijos + extras
+    let clientes = clientesFijos.concat(clientesExtra);
+
+    // Renderizar tabla
+    function renderClientes() {
+      const tbody = document.querySelector("#tablaClientes tbody");
+      tbody.innerHTML = "";
+      clientes.forEach(c => {
+        tbody.innerHTML += `
+          <tr>
+            <td>${c.nombre || "Sin nombre"}</td>
+            <td>${c.email}</td>
+          </tr>
+        `;
+      });
+    }
+
+    renderClientes();
+  </script>
+</body>
+</html>

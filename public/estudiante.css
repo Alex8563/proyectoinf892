@@ -1,0 +1,98 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0a0f1f, #1c2b4d);
+  margin: 0;
+  padding: 0;
+  color: #f0f0f0;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+  background: rgba(20, 30, 60, 0.95);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.navbar a, .navbar span.perfil {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.navbar span.perfil {
+  color: #ffd700;
+}
+
+/* Perfil */
+.perfil-estudiante, .cursos-estudiante, .videojuegos-estudiante {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: rgba(15, 25, 50, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(0,198,255,0.4);
+}
+
+h1, h2 {
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  color: #00c6ff;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 18px rgba(0,198,255,0.7);
+}
+
+/* Tabla cursos */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  border: 1px solid #00c6ff;
+  padding: 0.8rem;
+  text-align: center;
+  color: #fff;
+}
+
+table th {
+  background: #1c2b4d;
+  color: #ffd700;
+}
+
+table tr:nth-child(even) {
+  background: rgba(30, 40, 70, 0.8);
+}
+
+/* Formulario videojuegos */
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.upload-form input, .upload-form textarea {
+  padding: 0.9rem;
+  border: 1px solid #00c6ff;
+  border-radius: 10px;
+  background: #0a0f1f;
+  color: #fff;
+}
+
+.upload-form button {
+  align-self: center;
+  padding: 0.9rem 1.6rem;
+  background: linear-gradient(135deg, #00c6ff, #3498db);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.upload-form button:hover {
+  background: linear-gradient(135deg, #2980b9, #00c6ff);
+  transform: scale(1.05);
+}

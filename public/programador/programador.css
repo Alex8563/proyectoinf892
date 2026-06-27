@@ -1,0 +1,134 @@
+/* Fondo general */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0a0f1f, #1c2b4d);
+  margin: 0;
+  padding: 0;
+  color: #f0f0f0;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+  background: rgba(20, 30, 60, 0.95);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.navbar a {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #00c6ff;
+}
+
+/* Secciones principales */
+.programador-panel,
+.cursos-profesor,
+.estudiantes-profesor,
+.reportes-profesor {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: rgba(15, 25, 50, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(0,198,255,0.4);
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  color: #00c6ff;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 18px rgba(0,198,255,0.7);
+}
+
+/* Grid de panel y reportes */
+.panel-grid, .resumen-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.panel-card, .resumen-card {
+  background: rgba(30, 40, 70, 0.95);
+  border-radius: 14px;
+  box-shadow: 0 0 18px rgba(0,198,255,0.4);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.panel-card:hover, .resumen-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(0,198,255,0.6);
+}
+
+.panel-card h3, .resumen-card h3 {
+  font-size: 1.2rem;
+  color: #ffd700;
+  margin-bottom: 0.8rem;
+}
+
+.panel-card p, .resumen-card p {
+  font-size: 1rem;
+  color: #ddd;
+}
+
+/* Botones */
+.btn {
+  margin-top: 1rem;
+  padding: 0.8rem 1.4rem;
+  background: linear-gradient(135deg, #00c6ff, #3498db);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 0 15px rgba(0,198,255,0.5);
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #2980b9, #00c6ff);
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(0,198,255,0.7);
+}
+
+/* Tablas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+}
+
+table th, table td {
+  border: 1px solid #00c6ff;
+  padding: 0.8rem;
+  text-align: center;
+  color: #fff;
+}
+
+table th {
+  background: #1c2b4d;
+  color: #ffd700;
+}
+
+table tr:nth-child(even) {
+  background: rgba(30, 40, 70, 0.8);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 1rem;
+  color: #aaa;
+  font-size: 0.9rem;
+}

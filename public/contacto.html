@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Gaming Plataforma</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    const userRole = "cliente"
+    window.onload = () => {
+      if (userRole !== "admin") {
+        document.querySelectorAll('.admin-only').forEach(el => el.style.display = "none")
+      }
+      if (userRole !== "instructor") {
+        document.querySelectorAll('.instructor-only').forEach(el => el.style.display = "none")
+      }
+      if (userRole !== "cliente") {
+        document.querySelectorAll('.cliente-only').forEach(el => el.style.display = "none")
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logomejorado.png" alt="Logo Gaming Plataforma">
+      <h1>Gaming Plataforma</h1>
+      <p>Aprende · Crea · Publica</p>
+    </div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="cursos.html">Cursos</a>
+      <a href="videojuegos.html">Videojuegos</a>
+      <a href="comunidad.html">Comunidad</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="subir-juego.html" class="cliente-only">Subir Juego</a>
+      <a href="panel-admin.html" class="admin-only">Panel Admin</a>
+      <a href="panel-instructor.html" class="instructor-only">Panel Instructor</a>
+    </nav>
+  </header>
+  <main>
+    <section class="contact-form cliente-only">
+      <h2>Formulario de Contacto</h2>
+      <form action="/api/contacto/enviar" method="POST">
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+        <label for="email">Correo electrónico:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="mensaje">Mensaje:</label><br>
+        <textarea id="mensaje" name="mensaje" rows="5" required></textarea><br><br>
+        <button type="submit" class="send-btn">Enviar</button>
+      </form>
+    </section>
+    <section class="consultas instructor-only">
+      <h2>Consultas de Alumnos</h2>
+      <div class="consulta">
+        <h3>Alumno: Pedro</h3>
+        <p>Consulta sobre el curso de programación.</p>
+        <button class="reply-btn">Responder</button>
+      </div>
+      <div class="consulta">
+        <h3>Alumno: Ana</h3>
+        <p>Pregunta sobre materiales de diseño gráfico.</p>
+        <button class="reply-btn">Responder</button>
+      </div>
+    </section>
+    <section class="mensajes-admin admin-only">
+      <h2>Mensajes Recibidos</h2>
+      <div class="mensaje">
+        <h3>De: Cliente Juan</h3>
+        <p>Solicitud de inscripción manual.</p>
+        <button class="manage-btn">Gestionar</button>
+      </div>
+      <div class="mensaje">
+        <h3>De: Cliente Sofía</h3>
+        <p>Problema con descarga de juego.</p>
+        <button class="manage-btn">Gestionar</button>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <img src="logomejorado.png" alt="Logo Gaming Plataforma" class="footer-logo">
+    <p>&copy; 2026 Gaming Plataforma - Todos los derechos reservados</p>
+  </footer>
+</body>
+</html>

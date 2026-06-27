@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reportes</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="admin-dashboard.html">Panel Admin</a>
+    <a href="gestionar-usuarios.html">Usuarios</a>
+    <a href="gestionar-cursos.html">Cursos</a>
+    <a href="gestionar-videojuegos.html">Videojuegos</a>
+    <a href="reportes.html">Reportes</a>
+    <a href="index.html" class="login-btn">Cerrar Sesión</a>
+  </nav>
+
+  <!-- Sección principal -->
+  <section class="reportes-admin">
+    <h1>📊 Reportes y Estadísticas</h1>
+
+    <!-- Resumen rápido -->
+    <div class="resumen-grid">
+      <div class="resumen-card">
+        <h3>Usuarios registrados</h3>
+        <p>120</p>
+      </div>
+      <div class="resumen-card">
+        <h3>Cursos activos</h3>
+        <p>15</p>
+      </div>
+      <div class="resumen-card">
+        <h3>Videojuegos subidos</h3>
+        <p>32</p>
+      </div>
+      <div class="resumen-card">
+        <h3>Torneos organizados</h3>
+        <p>5</p>
+      </div>
+    </div>
+
+    <!-- Tabla de actividad -->
+    <h2>📈 Actividad reciente</h2>
+    <table class="reportes-table">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Evento</th>
+          <th>Usuario</th>
+          <th>Detalle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>25/06/2026</td>
+          <td>Nuevo registro</td>
+          <td>cliente@plataforma.com</td>
+          <td>Cuenta creada</td>
+        </tr>
+        <tr>
+          <td>24/06/2026</td>
+          <td>Curso inscrito</td>
+          <td>profesor@plataforma.com</td>
+          <td>Asignado a curso IA</td>
+        </tr>
+        <tr>
+          <td>23/06/2026</td>
+          <td>Videojuego subido</td>
+          <td>admin@plataforma.com</td>
+          <td>Cyberpunk 2077</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Plataforma de Videojuegos</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Plataforma Videojuegos</title>
+  <link rel="stylesheet" href="login.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="login-page">
+  <div class="auth-container">
+    <h1>🎮 Estudio Videojuegos</h1>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab active" onclick="showForm('login')">Iniciar Sesión</button>
+      <button class="tab" onclick="showForm('register')">Registrarse</button>
+    </div>
+
+    <!-- Login -->
+    <form id="login" class="form active">
+      <input type="email" name="email" placeholder="📧 Correo electrónico" required>
+      <input type="password" name="password" placeholder="🔒 Contraseña" required>
+      <button type="submit">Entrar</button>
+    </form>
+
+    <!-- Registro -->
+    <form id="register" class="form">
+      <input type="text" name="nombre" placeholder="👤 Nombre completo" required>
+      <input type="email" name="email" placeholder="📧 Correo electrónico" required>
+      <input type="password" name="password" placeholder="🔒 Contraseña" required>
+      <button type="submit">Crear cuenta</button>
+    </form>
+  </div>
+
+  <script>
+    function showForm(id) {
+      document.querySelectorAll('.form').forEach(f => f.classList.remove('active'));
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.querySelector(`.tab[onclick="showForm('${id}')"]`).classList.add('active');
+    }
+
+    // Usuarios fijos simulados
+    let usuarios = [
+      { email: "admin@gmail.com", password: "admin123", rol: "admin" },
+      { email: "profesor1@gmail.com", password: "prof123", rol: "profesor" },
+      { email: "profesor2@gmail.com", password: "prof456", rol: "profesor" },
+      { email: "cliente1@gmail.com", password: "cli111", rol: "cliente" },
+      { email: "cliente2@gmail.com", password: "cli222", rol: "cliente" },
+      { email: "cliente3@gmail.com", password: "cli333", rol: "cliente" },
+      { email: "cliente4@gmail.com", password: "cli444", rol: "cliente" },
+      { email: "cliente5@gmail.com", password: "cli555", rol: "cliente" },
+      { email: "cliente6@gmail.com", password: "cli666", rol: "cliente" },
+      { email: "cliente7@gmail.com", password: "cli777", rol: "cliente" },
+      { email: "cliente8@gmail.com", password: "cli888", rol: "cliente" },
+      { email: "cliente9@gmail.com", password: "cli999", rol: "cliente" },
+      { email: "cliente10@gmail.com", password: "cli000", rol: "cliente" }
+    ];
+
+    // Cargar usuarios guardados previamente
+    if (localStorage.getItem("usuariosExtra")) {
+      usuarios = usuarios.concat(JSON.parse(localStorage.getItem("usuariosExtra")));
+    }
+
+    // Registro simulado: guarda en localStorage y en la lista
+    document.querySelector('#register').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nombre = e.target.nombre.value;
+      const email = e.target.email.value;
+      const password = e.target.password.value;
+
+      const usuario = { nombre, email, password, rol: "cliente" };
+      usuarios.push(usuario);
+
+      // Guardar en localStorage para persistencia
+      localStorage.setItem("usuariosExtra", JSON.stringify(
+        usuarios.filter(u => u.rol === "cliente" && !u.email.startsWith("cliente"))
+      ));
+
+      alert("Cuenta creada correctamente como Cliente. Ahora puedes iniciar sesión.");
+      showForm('login');
+    });
+
+    // Login con redirección según rol
+    document.querySelector('#login').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = e.target.email.value;
+      const password = e.target.password.value;
+
+      const usuario = usuarios.find(u => u.email === email && u.password === password);
+
+      if (!usuario) {
+        alert("Credenciales incorrectas o cuenta no registrada.");
+        return;
+      }
+
+      const rol = usuario.rol;
+      if (rol === 'admin') {
+        window.location.href = '/admin/admin-dashboard.html';
+      } else if (rol === 'profesor') {
+        window.location.href = '/programador/programador-dashboard.html';
+      } else {
+        window.location.href = '/estudiante/estudiante-dashboard.html';
+      }
+    });
+  </script>
+</body>
+</html>

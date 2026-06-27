@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel Estudiante</title>
+  <link rel="stylesheet" href="estudiante.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="estudiante-dashboard.html">Inicio</a>
+    <a href="mis-cursos.html">Mis Cursos</a>
+    <a href="videojuegos.html">Videojuegos</a>
+    <span class="perfil">👤 Alex (Estudiante)</span>
+    <a href="../index.html" class="login-btn">Cerrar Sesión</a>
+  </nav>
+
+  <!-- Perfil -->
+  <section class="perfil-estudiante">
+    <h1>👤 Mi Perfil</h1>
+    <p><strong>Nombre:</strong> Alex</p>
+    <p><strong>Email:</strong> cliente@plataforma.com</p>
+    <p><strong>Rol:</strong> Estudiante</p>
+  </section>
+
+  <!-- Cursos inscritos -->
+  <section class="cursos-estudiante">
+    <h2>📚 Mis Cursos</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Curso</th>
+          <th>Instructor</th>
+          <th>Horario</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>HTML / CSS / JS</td>
+          <td>María López</td>
+          <td>Martes y Jueves 19:00</td>
+          <td>Inscrito ✅</td>
+        </tr>
+        <tr>
+          <td>Node.js / NestJS</td>
+          <td>Carlos Ramírez</td>
+          <td>Viernes 17:00</td>
+          <td>Inscrito ✅</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Videojuegos -->
+  <section class="videojuegos-estudiante">
+    <h2>🎮 Mis Videojuegos</h2>
+    <form class="upload-form">
+      <label for="titulo">Título del videojuego</label>
+      <input type="text" id="titulo" required>
+
+      <label for="descripcion">Descripción</label>
+      <textarea id="descripcion" required></textarea>
+
+      <label for="archivo">Archivo del videojuego</label>
+      <input type="file" id="archivo" required>
+
+      <button type="submit" class="btn">Subir Videojuego</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Plataforma de Videojuegos</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel Programador/Profesor</title>
+  <link rel="stylesheet" href="programador.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="programador-dashboard.html">Panel Programador</a>
+    <a href="mis-cursos.html">Mis Cursos</a>
+    <a href="mis-estudiantes.html">Estudiantes</a>
+    <a href="reportes-profesor.html">Reportes</a>
+    <a href="../index.html" class="login-btn">Cerrar Sesión</a>
+  </nav>
+
+  <!-- Sección principal -->
+  <section class="programador-panel">
+    <h1>👨‍💻 Panel del Programador/Profesor</h1>
+    <div class="panel-grid">
+      <div class="panel-card">
+        <h3>📚 Mis Cursos</h3>
+        <p>Gestiona los cursos que impartes.</p>
+        <button onclick="location.href='mis-cursos.html'" class="btn">Entrar</button>
+      </div>
+      <div class="panel-card">
+        <h3>👥 Estudiantes</h3>
+        <p>Revisa los alumnos inscritos en tus clases.</p>
+        <button onclick="location.href='mis-estudiantes.html'" class="btn">Entrar</button>
+      </div>
+      <div class="panel-card">
+        <h3>📊 Reportes</h3>
+        <p>Consulta estadísticas de tus cursos.</p>
+        <button onclick="location.href='reportes-profesor.html'" class="btn">Entrar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Plataforma de Videojuegos</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestionar Videojuegos</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="admin-dashboard.html">Panel Admin</a>
+    <a href="gestionar-usuarios.html">Usuarios</a>
+    <a href="gestionar-cursos.html">Cursos</a>
+    <a href="gestionar-videojuegos.html">Videojuegos</a>
+    <a href="reportes.html">Reportes</a>
+    <a href="index.html" class="login-btn">Cerrar Sesión</a>
+  </nav>
+
+  <!-- Sección principal -->
+  <section class="videojuegos-admin">
+    <h1>🎮 Gestión de Videojuegos</h1>
+
+    <!-- Tabla de videojuegos -->
+    <table class="videojuegos-table">
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Género</th>
+          <th>Plataforma</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Elden Ring</td>
+          <td>RPG</td>
+          <td>PC / PS5 / Xbox</td>
+          <td>Activo ✅</td>
+          <td>
+            <button class="btn">Editar</button>
+            <button class="btn">Eliminar</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Zelda: Tears of the Kingdom</td>
+          <td>Aventura</td>
+          <td>Nintendo Switch</td>
+          <td>Activo ✅</td>
+          <td>
+            <button class="btn">Editar</button>
+            <button class="btn">Eliminar</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Cyberpunk 2077</td>
+          <td>Acción</td>
+          <td>PC / PS5 / Xbox</td>
+          <td>Inactivo ❌</td>
+          <td>
+            <button class="btn">Editar</button>
+            <button class="btn">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Formulario para agregar videojuego -->
+    <h2>➕ Agregar Videojuego</h2>
+    <form class="videojuego-form">
+      <input type="text" placeholder="Título del videojuego" required>
+      <input type="text" placeholder="Género" required>
+      <input type="text" placeholder="Plataforma(s)" required>
+      <select required>
+        <option value="">Seleccionar estado</option>
+        <option value="activo">Activo</option>
+        <option value="inactivo">Inactivo</option>
+      </select>
+      <button type="submit" class="btn">Agregar</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Plataforma de Videojuegos</p>
+  </footer>
+</body>
+</html>

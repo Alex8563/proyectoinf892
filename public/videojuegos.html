@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Videojuegos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html">Inicio</a>
+    <a href="cursos.html">Cursos</a>
+    <a href="videojuegos.html" class="active">Videojuegos</a>
+    <a href="comunidad.html">Comunidad</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+  <!-- Sección de subida -->
+  <section class="videojuegos">
+    <h1>Subir Videojuego</h1>
+    <form class="upload-form">
+      <label for="titulo">Título:</label>
+      <input type="text" id="titulo" name="titulo" required>
+
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion" name="descripcion" required></textarea>
+
+      <label for="imagen">Imagen:</label>
+      <input type="file" id="imagen" name="imagen" accept="image/*">
+
+      <label for="archivo">Archivo del juego:</label>
+      <input type="file" id="archivo" name="archivo" accept=".zip,.rar,.exe">
+
+      <button type="submit">Subir Videojuego</button>
+    </form>
+  </section>
+
+  <!-- Sección de listado -->
+  <section class="lista-videojuegos">
+    <h2>Videojuegos Subidos</h2>
+
+    <div class="videojuegos-grid">
+      <div class="card">
+        <img src="assets/img/plants-vs-zombies.jpg" alt="Plants vs Zombies Fusion" class="card-img">
+        <div class="card-content">
+          <h3>Plants vs Zombies Fusion</h3>
+          <p>Una versión mejorada con nuevas mecánicas y personajes.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="assets/img/Drive-Beyond-Horizons.jpg" alt="Drive Beyond Horizons" class="card-img">
+        <div class="card-content">
+          <h3>Drive Beyond Horizons</h3>
+          <p>Un simulador de carreras con escenarios futuristas y multijugador online.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Plataforma de Videojuegos</p>
+  </footer>
+</body>
+</html>
